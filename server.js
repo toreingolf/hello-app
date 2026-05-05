@@ -1,10 +1,8 @@
 var http = require('http');
 
-var handleRequest = function(request, response) {
-	console.log('Received request for URL: ' + request.url);
-	response.writeHead(200);
-	response.end('Hello World!');
-};
+http.createServer(function (request, response) {
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Hello World');
+}).listen(8080);
 
-var www = http.createServer(handleRequest);
-www.listen(8080);
+console.log('Server running.');
